@@ -7,8 +7,8 @@ export default class Todo extends Component {
             <div>
              <button>edit</button>
              <button>delete</button>      
-            <li>todo1</li>
-            <li>todo2</li>
+            <li>{this.props.todo}</li>
+            
             
             </div>
         )
