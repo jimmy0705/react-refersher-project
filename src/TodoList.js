@@ -26,14 +26,21 @@ export default class TodoList extends Component {
         })
     }
     render() {
+     //conditional rendering
+        // if (this.state.todos.length < 1) {
+        //     return <h3>please add your todos </h3>
+        //   }
+       
         return (
             <div>
                 <h1>todo list</h1>
                 <CreateTodo create={this.handlerCreate} />
-
-                <ul>
+               {this.state.todos.length<1 ? <h3>please add your todos </h3> :  <ul>
                    {this.state.todos.map((todo,index)=><Todo todo={todo.task} key={index} id={index} delete={this.handlerRemove}/>)}
-                </ul>
+                </ul>}
+                {/* <ul>
+                   {this.state.todos.map((todo,index)=><Todo todo={todo.task} key={index} id={index} delete={this.handlerRemove}/>)}
+                </ul> */}
             </div>
         )
     }
