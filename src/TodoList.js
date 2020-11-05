@@ -5,11 +5,17 @@ import CreateTodo from "./CreateTodo"
 export default class TodoList extends Component {
     constructor(props){
         super(props)
-        this.state={todos:
-            [{task:"practice mac Mojave edition "},{task:"Practice and understand developer workflow in MacBook terminal and all"},{task:"Setup react and react native environment"},{task:"practice and refresh react simple to do project"},{task:"implement redux into this todo project to under redux"}
-        ]}
+        this.state={todos:[]}
 
         this.handlerCreate= this.handlerCreate.bind(this)
+        this.handlerRemove= this.handlerRemove.bind(this)
+    }
+
+    handlerRemove(id){
+       console.log(id)
+       this.setState({
+           todos: this.state.todos.filter((t,index)=> index != id)
+       })
     }
 
     handlerCreate(newTodo){
@@ -26,7 +32,7 @@ export default class TodoList extends Component {
                 <CreateTodo create={this.handlerCreate} />
 
                 <ul>
-                   {this.state.todos.map((todo,index)=><Todo todo={todo.task} key={index}/>)}
+                   {this.state.todos.map((todo,index)=><Todo todo={todo.task} key={index} id={index} delete={this.handlerRemove}/>)}
                 </ul>
             </div>
         )
