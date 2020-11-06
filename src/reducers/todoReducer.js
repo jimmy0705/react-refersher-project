@@ -16,7 +16,16 @@ const initState = {
         todos: newTodos
       }
       
-    };
+    }else if(action.type === 'ADD_TODO'){
+     
+     // alert("WE WILL ADD TODO")
+      return {
+        ...state,
+        todos:[...state.todos,action.task]
+      }
+
+
+    }
 
     return state;
   }

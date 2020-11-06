@@ -1,6 +1,7 @@
 import { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class CreateTodo extends Component {
+ class CreateTodo extends Component {
 
     constructor(props){
         super(props)
@@ -22,8 +23,8 @@ export default class CreateTodo extends Component {
         e.preventDefault()
        // alert(" ad todo submit button clicked")
        console.log(this.state.task)
-      // console.log(this.props.create)
-       this.props.create(this.state)
+       console.log(this.props)
+       this.props.addTodo(this.state)
        this.setState({
            task:""
        })
@@ -53,3 +54,14 @@ export default class CreateTodo extends Component {
         )
     }
 }
+
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      addTodo:task => dispatch({type: 'ADD_TODO', task: task})
+    }
+  }
+
+
+  export default connect(null,mapDispatchToProps)(CreateTodo)

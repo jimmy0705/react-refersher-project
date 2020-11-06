@@ -4,13 +4,13 @@ import CreateTodo from "./CreateTodo"
 import { connect } from 'react-redux'
 
  class TodoList extends Component {
-    constructor(props){
-        super(props)
-        // this.state={todos:[]}
+    // constructor(props){
+    //     super(props)
+    //     this.state={todos:[]}
 
-        this.handlerCreate= this.handlerCreate.bind(this)
-       // this.handlerRemove= this.handlerRemove.bind(this)
-    }
+    //    this.handlerCreate= this.handlerCreate.bind(this)
+    //    this.handlerRemove= this.handlerRemove.bind(this)
+    // }
 
     // handlerRemove(id){
     //    console.log(id)
@@ -19,13 +19,13 @@ import { connect } from 'react-redux'
     //    })
     // }
 
-    handlerCreate(newTodo){
-        console.log(newTodo)
-        console.log(this.state.todos)
-        this.setState({
-           todos:[...this.state.todos,newTodo]
-        })
-    }
+    // handlerCreate(newTodo){
+    //     console.log(newTodo)
+    //     console.log(this.state.todos)
+    //     this.setState({
+    //        todos:[...this.state.todos,newTodo]
+    //     })
+    // }
     render() {
 
         console.log(this.props.todos)
@@ -33,7 +33,7 @@ import { connect } from 'react-redux'
         return (
             <div className="todo-area" >
                 <h1>todo list</h1>
-                <CreateTodo create={this.handlerCreate} />
+                <CreateTodo  />
                {this.props.todos.length<1 ? <h3>please add your todos </h3> :  <ul>
                    {this.props.todos.map((todo,index)=><Todo todo={todo.task} key={index} id={index}/>)}
                 </ul>}
