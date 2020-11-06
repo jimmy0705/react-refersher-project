@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom'
 
 import './common.css'
 
 function Nav() {
   return (
     <div className="Nav">
-    <ul>
-  <li className="url"><a href="/">Todo</a></li>
-  <li className="url"><a href="/random">random</a></li>
+    <ul className="nav-links">
+  <li className="url"><Link to="/">Todo</Link></li>
+  <li className="url"><Link to="/random">random</Link></li>
   
   
 </ul>

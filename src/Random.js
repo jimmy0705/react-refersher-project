@@ -1,12 +1,15 @@
 import { Component } from 'react'
-import Todo from './Todo'
-import CreateTodo from "./CreateTodo"
+
 
 export default class Random extends Component {
     constructor(props){
         super(props)
-       
+        setTimeout(() => {
+        props.history.push('/')
+        }, 3000);
     }
+
+   
 
  
     render() {
@@ -18,6 +21,7 @@ export default class Random extends Component {
         return (
             <div>
                <h1>random page is here .....</h1>
+               <h3>you will be redirect to ur todo page in 3 seconds :)</h3>
             </div>
         )
     }

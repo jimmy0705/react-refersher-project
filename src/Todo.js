@@ -1,5 +1,7 @@
 import { Component } from 'react'
 
+import './common.css'
+
 export default class Todo extends Component {
 
      handleId =(e)=>{
@@ -14,7 +16,7 @@ export default class Todo extends Component {
       
 
         return (
-            <div>
+            <div className="todo-li">
              <button>edit</button>
              <button onClick={this.handleId}>delete</button>      
             <li>{this.props.todo}</li>

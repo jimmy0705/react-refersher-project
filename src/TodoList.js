@@ -1,11 +1,12 @@
 import { Component } from 'react'
 import Todo from './Todo'
 import CreateTodo from "./CreateTodo"
+import { connect } from 'react-redux'
 
-export default class TodoList extends Component {
+ class TodoList extends Component {
     constructor(props){
         super(props)
-        this.state={todos:[]}
+        // this.state={todos:[]}
 
         this.handlerCreate= this.handlerCreate.bind(this)
         this.handlerRemove= this.handlerRemove.bind(this)
@@ -26,17 +27,15 @@ export default class TodoList extends Component {
         })
     }
     render() {
-     //conditional rendering
-        // if (this.state.todos.length < 1) {
-        //     return <h3>please add your todos </h3>
-        //   }
+
+        console.log(this.props.todos)
        
         return (
-            <div>
+            <div className="todo-area" >
                 <h1>todo list</h1>
                 <CreateTodo create={this.handlerCreate} />
-               {this.state.todos.length<1 ? <h3>please add your todos </h3> :  <ul>
-                   {this.state.todos.map((todo,index)=><Todo todo={todo.task} key={index} id={index} delete={this.handlerRemove}/>)}
+               {this.props.todos.length<1 ? <h3>please add your todos </h3> :  <ul>
+                   {this.props.todos.map((todo,index)=><Todo todo={todo.task} key={index} id={index} delete={this.handlerRemove}/>)}
                 </ul>}
                 {/* <ul>
                    {this.state.todos.map((todo,index)=><Todo todo={todo.task} key={index} id={index} delete={this.handlerRemove}/>)}
@@ -45,3 +44,14 @@ export default class TodoList extends Component {
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+      todos: state.todos
+    }
+  }
+
+
+
+  export default connect(mapStateToProps)(TodoList)
