@@ -4,7 +4,26 @@ const initState = {
   }
   
   const todoReducer = (state = initState, action) => {
+    console.log(action);
+
+    if(action.type === 'DELETE_TODO'){
+      //alert("we willd delete")
+      let newTodos = state.todos.filter((todo,index) => {
+        return index !== action.id
+      });
+      return {
+        ...state,
+        todos: newTodos
+      }
+      
+    };
+
     return state;
   }
   
   export default todoReducer
+
+
+
+
+  
