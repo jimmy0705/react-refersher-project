@@ -14,7 +14,7 @@ export default class TodoList extends Component {
     handlerRemove(id){
        console.log(id)
        this.setState({
-           todos: this.state.todos.filter((t,index)=> index != id)
+           todos: this.state.todos.filter((t,index)=> index !== id)
        })
     }
 

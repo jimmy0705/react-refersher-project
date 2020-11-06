@@ -1,0 +1,21 @@
+
+
+/* navbar css for fixed top position */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li.url {
+    margin-right: 1em;
+}
